@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Document Editor</title>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="toolbar">
+            <div class="toolbar-group">
+                <button id="undo-btn" title="Undo"><i class="fas fa-undo"></i></button>
+                <button id="redo-btn" title="Redo"><i class="fas fa-redo"></i></button>
+            </div>
+            
+            <div class="toolbar-divider"></div>
+            
+            <div class="toolbar-group">
+                <select id="font-family" title="Font">
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                </select>
+                
+                <select id="font-size" title="Font size">
+                    <option value="1">8</option>
+                    <option value="2">10</option>
+                    <option value="3">12</option>
+                    <option value="4">14</option>
+                    <option value="5">18</option>
+                    <option value="6">24</option>
+                    <option value="7">36</option>
+                </select>
+            </div>
+            
+            <div class="toolbar-divider"></div>
+            
+            <div class="toolbar-group">
+                <button id="bold-btn" title="Bold"><i class="fas fa-bold"></i></button>
+                <button id="italic-btn" title="Italic"><i class="fas fa-italic"></i></button>
+                <button id="underline-btn" title="Underline"><i class="fas fa-underline"></i></button>
+                <button id="strikethrough-btn" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
+                <input type="color" id="text-color" title="Text color" value="#000000">
+                <input type="color" id="highlight-color" title="Highlight color" value="#ffffff">
+            </div>
+            
+            <div class="toolbar-divider"></div>
+            
+            <div class="toolbar-group">
+                <button id="align-left-btn" title="Align left"><i class="fas fa-align-left"></i></button>
+                <button id="align-center-btn" title="Align center"><i class="fas fa-align-center"></i></button>
+                <button id="align-right-btn" title="Align right"><i class="fas fa-align-right"></i></button>
+                <button id="align-justify-btn" title="Justify"><i class="fas fa-align-justify"></i></button>
+            </div>
+            
+            <div class="toolbar-divider"></div>
+            
+            <div class="toolbar-group">
+                <button id="bullet-list-btn" title="Bullet list"><i class="fas fa-list-ul"></i></button>
+                <button id="number-list-btn" title="Numbered list"><i class="fas fa-list-ol"></i></button>
+                <button id="decrease-indent-btn" title="Decrease indent"><i class="fas fa-outdent"></i></button>
+                <button id="increase-indent-btn" title="Increase indent"><i class="fas fa-indent"></i></button>
+            </div>
+            
+            <div class="toolbar-divider"></div>
+            
+            <div class="toolbar-group">
+                <button id="insert-link-btn" title="Insert link"><i class="fas fa-link"></i></button>
+                <button id="insert-image-btn" title="Insert image"><i class="fas fa-image"></i></button>
+                <button id="insert-table-btn" title="Insert table"><i class="fas fa-table"></i></button>
+                <button id="page-break-btn" title="Insert page break"><i class="fas fa-file"></i></button>
+            </div>
+            
+            <div class="toolbar-divider"></div>
+            
+            <div class="toolbar-group">
+                <button id="save-btn" title="Save"><i class="fas fa-save"></i> Save</button>
+                <button id="load-btn" title="Open"><i class="fas fa-folder-open"></i> Open</button>
+                <button id="export-btn" title="Export"><i class="fas fa-file-export"></i> Export</button>
+            </div>
+        </div>
+        <div id="editor" contenteditable="true" class="editor-area">
+            <div class="page">
+                <p><br></p>
+            </div>
+        </div>
+    </div>
+    <script src="document.js"></script>
+</body>
+</html>

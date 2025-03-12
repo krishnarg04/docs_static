@@ -1,0 +1,218 @@
+body {
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #202124;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Modern toolbar styling */
+.toolbar {
+    padding: 4px 8px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 36px;
+}
+
+.toolbar-divider {
+    height: 24px;
+    width: 1px;
+    background-color: #e0e0e0;
+    margin: 0 6px;
+}
+
+/* Button styling more like Google Docs */
+.toolbar button {
+    height: 32px;
+    min-width: 32px;
+    padding: 0 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5f6368;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.toolbar button:hover {
+    background-color: #f1f3f4;
+    color: #202124;
+}
+
+.toolbar button:active {
+    background-color: #e8eaed;
+}
+
+/* Blue accent for selected state */
+.toolbar button.active {
+    color: #1a73e8;
+    background-color: #e8f0fe;
+}
+
+.toolbar button i {
+    font-size: 16px;
+}
+
+/* File operation buttons with blue accent */
+#save-btn, #load-btn, #export-btn {
+    background-color: #1a73e8;
+    color: white;
+    font-weight: 500;
+    padding: 0 12px;
+    border-radius: 4px;
+}
+
+#save-btn:hover, #load-btn:hover, #export-btn:hover {
+    background-color: #2b7de9;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+#save-btn:active, #load-btn:active, #export-btn:active {
+    background-color: #1967d2;
+}
+
+/* Modern select styling */
+.toolbar select {
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: white;
+    color: #5f6368;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.toolbar select:hover, .toolbar select:focus {
+    border-color: #dadce0;
+    outline: none;
+}
+
+.toolbar select:focus {
+    border-color: #1a73e8;
+}
+
+/* Color picker styling */
+.toolbar input[type="color"] {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+}
+
+/* A4 page styling */
+.editor-area {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page {
+    width: 210mm;  /* A4 width */
+    min-height: 297mm; /* A4 height */
+    padding: 20mm;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 2px;
+}
+
+/* Make sure any new pages created follow the same styling */
+[contenteditable] div.page {
+    outline: none;
+}
+
+/* Add some reasonable typography defaults */
+.page p {
+    margin: 0 0 1em 0;
+    line-height: 1.5;
+}
+
+/* Page number styling */
+.page::after {
+    content: attr(data-page-number);
+    position: absolute;
+    bottom: 8mm;
+    right: 10mm;
+    color: #5f6368;
+    font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .toolbar {
+        overflow-x: auto;
+    }
+    
+    .editor-area {
+        padding: 10px;
+    }
+    
+    .page {
+        width: 100%;
+        min-height: auto;
+        padding: 15mm;
+    }
+}
+
+/* Add a nice focus effect for the editor */
+.editor-area:focus {
+    outline: none;
+}
+
+/* Link styling */
+.page a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.page a:hover {
+    text-decoration: underline;
+}
+
+/* Tables styling */
+.page table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.page table td, .page table th {
+    border: 1px solid #dadce0;
+    padding: 8px;
+}
